@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <string.h>
 #define N 57
+
 typedef struct carro {
 	char placa[8];
 	char marca[15];
@@ -15,53 +16,6 @@ typedef struct noTabela {
 	int posicao;
 	struct noTabela* prox;
 } No;
-
-FILE* prepararArquivo(char nome[]);
-void fecharArquivo(FILE* arq);
-int buscar(No* tabelaHashing[], char placa[]);
-void cadastrar(FILE* arq, No* tabelaHashing[]);
-void consultar(FILE* arq, No* tabelaHashing[]);
-void alterar(FILE* arq, No* tabelaHashing[]);
-void remover(FILE* arq, No* tabelaHashing[]);
-void exibirCadastro(FILE* arq);
-void criarIndice(FILE* arq, No* tabelaHashing[]);
-void inserirTabelaHash(No* tabelaHashing[], char placa[], int pos);
-int hashing(char placa[]);
-void exibirOpcoes();
-
-int main() {
-	char nomeArq[] = "carros.dat";
-	int op;
-	FILE* cadastro;
-	NO* tabelaHashing[N];
-	cadastro = prepararArquivo(nomeArq);
-	if (cadastro == NULL)
-		printf("Erro na abertura do arquivo. Programa encerrado \n");
-	else {
-		criarIndice(cadastro, tabelaHashing);
-		do {
-			exibirOpcoes();
-			scanf("%d",&op); fflush(stdin);
-			switch (op) {
-			case 1: cadastrar(cadastro, tabelaHashing);
-		                              break;
-			case 2: consultar(cadastro, tabelaHashing);
-			             break;
-			case 3: alterar(cadastro, tabelaHashing);
-			             break;
-			case 4: remover(cadastro, tabelaHashing);
-			             break;
-			case 5: exibirCadastro(cadastro);
-			             break;
-			case 0: liberarArquivo(cadastro);
-			             desalocarIndice(tabelaHashing);
-			             break;
-			default: printf("Opcao invalida \n");
-			}
-		} while (op != 0);
-	}
-	return 0;
-}
 
 FILE* prepararArquivo(char nome[]) {
      /* Tenta abrir o arquivo para leitura e gravação.
@@ -186,4 +140,38 @@ void remover(FILE* arq, No* tabelaHashing[]) {
 
 void exibirCadastro(FILE* arq) {
 	/* Exibe todos os registros de carros ATIVOS constantes no arquivo. */
+}
+
+int main() {
+	char nomeArq[] = "carros.dat";
+	int op;
+	FILE* cadastro;
+	NO* tabelaHashing[N];
+	cadastro = prepararArquivo(nomeArq);
+	if (cadastro == NULL)
+		printf("Erro na abertura do arquivo. Programa encerrado \n");
+	else {
+		criarIndice(cadastro, tabelaHashing);
+		do {
+			exibirOpcoes();
+			scanf("%d",&op); fflush(stdin);
+			switch (op) {
+			case 1: cadastrar(cadastro, tabelaHashing);
+		                              break;
+			case 2: consultar(cadastro, tabelaHashing);
+			             break;
+			case 3: alterar(cadastro, tabelaHashing);
+			             break;
+			case 4: remover(cadastro, tabelaHashing);
+			             break;
+			case 5: exibirCadastro(cadastro);
+			             break;
+			case 0: liberarArquivo(cadastro);
+			             desalocarIndice(tabelaHashing);
+			             break;
+			default: printf("Opcao invalida \n");
+			}
+		} while (op != 0);
+	}
+	return 0;
 }
