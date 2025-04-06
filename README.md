@@ -3,13 +3,13 @@
 
 
 
-**Projeto de Cadastro de Carros com Hashing em C**
+**➜Projeto de Cadastro de Carros com Hashing em C**
 
   -Este projeto implementa um sistema de cadastro de carros com acesso direto via hashing, utilizando arquivos binários e listas duplamente encadeadas para indexação.
 
 
 
-**Estrutura e Funcionamento:**
+**➜Estrutura e Funcionamento:**
 
   -Os carros são armazenados em um arquivo binário (carros.dat) com campos como placa, marca, modelo, cor e status (ativo/removido).
 
@@ -20,7 +20,7 @@
 
 
 
-**Funcionalidades:**
+**➜Funcionalidades:**
 
   -Cadastrar carro: Salva no arquivo e adiciona na tabela hash.
 
@@ -37,7 +37,7 @@
 
 
 
-**Técnicas e Estruturas Utilizadas**
+**➜Técnicas e Estruturas Utilizadas**
 
   -Hashing com tratamento de colisões
 
