@@ -1,4 +1,4 @@
-****O que é Hashing?****
+****O que é Hashing?****\n
 *Hashing é uma técnica utilizada para armazenar, buscar e acessar dados de forma rápida. Através de uma função hash, uma chave (como uma string ou número) é convertida em um índice de uma tabela. Essa abordagem permite operações eficientes de inserção, busca e remoção, geralmente em tempo constante*
 
 **Projeto de Cadastro de Carros com Hashing em C**
